@@ -10,6 +10,9 @@ export class LibroComponent implements OnInit {
   @Input()
   libro!: Libro;
   @Output('delLibro') delLibro = new EventEmitter<Libro>();
+  @Output('editLibro') editLibro = new EventEmitter<Libro>();
+  edit: boolean = false;
+  hidden: boolean = true;
 
   constructor() { }
 
@@ -17,7 +20,17 @@ export class LibroComponent implements OnInit {
   }
 
   OnDelLibro(libro:Libro){
-    console.log(libro)
+    console.log(libro);
+    this.delLibro.emit(libro);
   }
 
+  OnEditLibro(libro:Libro){
+    this.editLibro.emit(libro);
+  }
+
+  OnAbilitaEdit(titolo){
+    this.edit = !this.edit;
+    this.hidden = !this.hidden;
+    titolo.focus()
+  }
 }

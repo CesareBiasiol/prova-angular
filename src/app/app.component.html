@@ -1,5 +1,7 @@
-<button (click)="onClick()">cliccami</button>
-<hr>
 <div *ngFor="let libro of libri">
-    <app-libro [libro]="libro"></app-libro>
+    <app-libro 
+        [libro]="libro"
+        (delLibro) = "OnDelLibro($event)"
+        (editLibro) = "OnEditLibro($event)"
+    ></app-libro>
 </div>

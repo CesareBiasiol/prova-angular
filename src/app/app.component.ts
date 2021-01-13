@@ -13,7 +13,16 @@ export class AppComponent {
     {titolo: 'React', autore:"facebook",genere:"web tech"}
   ];
 
-  onClick(){
-    console.log(this.title);
+  onClick(libro:Libro){
+    console.log(libro);
+  }
+
+  OnDelLibro(libro: Libro){
+    console.log("Log da componente padre", libro)
+    this.libri = this.libri.filter( libroInElenco => libro.titolo !== libroInElenco.titolo);
+  }
+
+  OnEditLibro(libro:Libro){
+
   }
 }

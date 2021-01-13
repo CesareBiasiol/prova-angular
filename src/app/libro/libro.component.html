@@ -1,2 +1,7 @@
-mi hai passato il libro {{libro.titolo}}
+<input type="text" [value]="libro.titolo" [disabled]="!edit" #titolo>
+<input type="text" [value]="libro.autore" [disabled]="!edit" #titolo>
+<input type="text" [value]="libro.genere" [disabled]="!edit" #titolo>
+<button (click)="onClick(libro)">Log</button>
 <button (click)="OnDelLibro(libro)">Del</button>
+<button (click)="OnAbilitaEdit(titolo)">Edit</button>
+<button (click)="OnEditLibro(libro)" [hidden]="hidden">Confirm</button>
